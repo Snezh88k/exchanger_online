@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  margin: 0;
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -16,12 +20,49 @@
   }
 }
 
+html {
+  background-color: black;
+  height: 100%;
+}
 body {
-  color: rgb(var(--foreground-rgb));
+  min-height: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
+main {
+  width: 1280px;
+  margin: 0 auto;
+  flex: 1 1 auto;
+  height: 100%;
+}
+
+main::before {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+  background: url("../image/main4.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(5px);
+}
+.header {
+  height: 40px;
+  background: rgb(68, 146, 186);
   background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    90deg,
+    rgba(68, 146, 186, 0.5) 16%,
+    rgba(205, 34, 162, 0.5) 66%
+  );
 }

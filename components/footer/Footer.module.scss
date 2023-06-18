@@ -1,0 +1,32 @@
+.footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 60px;
+  background: rgb(68, 146, 186);
+  background: linear-gradient(
+    90deg,
+    rgba(68, 146, 186, 0.5) 16%,
+    rgba(205, 34, 162, 0.5) 66%
+  );
+
+  .wrapper {
+    width: 1280px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .developerInfo {
+      display: flex;
+      font-size: 14px;
+      color: white;
+
+      align-items: center;
+      span {
+        margin-right: 10px;
+      }
+    }
+  }
+}
