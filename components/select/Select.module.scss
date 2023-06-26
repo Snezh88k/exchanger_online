@@ -1,0 +1,16 @@
+.selectCurrency {
+  background-color: rgba(128, 128, 128, 0.2);
+  color: rgb(255, 255, 255);
+  border-radius: 0 5px 5px 0;
+  padding: 0 8px 0 8px;
+  margin: 0;
+  cursor: pointer;
+  outline: none;
+  font-weight: 300;
+
+  border-right: 16px solid transparent;
+
+  option {
+    background-color: rgba(0, 0, 0, 0.452);
+  }
+}

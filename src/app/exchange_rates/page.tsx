@@ -1,49 +1,42 @@
 "use client";
 import { fetchRates } from "@/store/slice/rateSlice";
 import { AppDispatch } from "@/store/store";
-
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./page.module.scss";
+import Select from "../../../components/select/Select";
 
 interface State {
   rates: {
-    rates: [string, string];
+    rates: [];
   };
 }
 
 export default function page() {
   const [activeСurrency, setActiveСurrency] = useState("USD");
   const dispatch = useDispatch<AppDispatch>();
+  const store = useSelector((state: State) => state.rates.rates);
 
   useEffect(() => {
-    dispatch(fetchRates("USD"));
+    if (store.length === 0) {
+      dispatch(fetchRates("USD"));
+    }
   }, []);
-
-  const store = useSelector((state: State) => state.rates.rates);
 
   const changeCurrency = (e: any) => {
     dispatch(fetchRates(e.target.value));
     setActiveСurrency(e.target.value);
   };
 
-  useEffect(() => {
-    console.log(store);
-  }, [store]);
+  const currencies = ["USD", "RUB", "EUR", "BTC"];
 
   return (
     <div className={styles.exchangeWrapper}>
-      <select
-        id="currency"
-        className={styles.selectCurrency}
+      <Select
+        className={styles.to}
+        optionValue={currencies}
         onChange={(e) => changeCurrency(e)}
-      >
-        <option value="USD">USD</option>
-        <option value="RUB">RUB</option>
-        <option value="EUR">EUR</option>
-        <option value="BTC">BTC</option>
-      </select>
-
+      />
       <div className={styles.info}>
         {store.map((item) => {
           return (

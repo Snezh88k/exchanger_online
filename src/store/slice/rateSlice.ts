@@ -77,7 +77,7 @@ const ratesSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchRates.fulfilled, (state, action) => {
-      const array = Object.entries(action.payload);
+      const array = action.payload ? Object.entries(action.payload) : [];
       state.rates = array;
     });
     builder.addCase(fetchExchange.fulfilled, (state, action) => {
