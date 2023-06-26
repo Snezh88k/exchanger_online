@@ -30,22 +30,5 @@ export default function page() {
 
   const currencies = ["USD", "RUB", "EUR", "BTC"];
 
-  return (
-    <div className={styles.exchangeWrapper}>
-      <Select
-        className={styles.to}
-        optionValue={currencies}
-        onChange={(e) => changeCurrency(e)}
-      />
-      <div className={styles.info}>
-        {store.map((item) => {
-          return (
-            <div key={item[0]}>
-              1 {activeСurrency} → {item[1]} {item[0]}
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  );
+  return <div>МЕЙН ПЕЙДЖ</div>;
 }
